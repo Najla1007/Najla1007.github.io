@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nurul Nabila Najla | Portfolio</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --navy: #1a3a6b;
+      --navy-light: #2d5499;
+      --navy-pale: #e8eff8;
+      --text: #222;
+      --text-muted: #555;
+      --bg: #ffffff;
+      --bg-alt: #f7f8fa;
+      --border: #e0e4ea;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; color: var(--text); background: var(--bg); font-size: 15px; line-height: 1.6; }
+
+    /* NAV */
+    nav { background: var(--navy); padding: 14px 48px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+    .nav-logo { color: #fff; font-size: 18px; font-weight: 600; letter-spacing: 0.5px; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { color: #b8cce4; text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+    .nav-toggle { display: none; background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; }
+
+    /* HERO */
+    .hero { background: var(--navy); padding: 80px 48px 100px; text-align: center; }
+    .hero-avatar { width: 100px; height: 100px; border-radius: 50%; background: var(--navy-light); margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: 600; color: #fff; border: 3px solid #4a7abf; }
+    /* Uncomment below and replace avatar div if you have a photo: */
+    /* .hero-avatar img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid #4a7abf; display: block; margin: 0 auto 20px; } */
+    .hero h1 { color: #fff; font-size: 32px; font-weight: 700; margin-bottom: 10px; }
+    .hero-role { color: #b8cce4; font-size: 16px; margin-bottom: 6px; }
+    .hero-uni { color: #7aabd4; font-size: 14px; margin-bottom: 32px; }
+    .btn-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { background: #fff; color: var(--navy); border: none; padding: 12px 28px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: opacity 0.2s; }
+    .btn-primary:hover { opacity: 0.9; }
+    .btn-outline { background: transparent; color: #fff; border: 1.5px solid #4a7abf; padding: 12px 28px; border-radius: 8px; font-size: 14px; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: background 0.2s; }
+    .btn-outline:hover { background: rgba(255,255,255,0.08); }
+
+    /* SECTIONS */
+    .section { padding: 64px 48px; }
+    .section-alt { background: var(--bg-alt); padding: 64px 48px; }
+    .section-inner { max-width: 960px; margin: 0 auto; }
+    .section-label { font-size: 12px; font-weight: 600; color: var(--navy); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px; }
+    .section-title { font-size: 26px; font-weight: 700; margin-bottom: 28px; color: var(--text); }
+
+    /* ABOUT */
+    .about-text { font-size: 15px; color: var(--text-muted); line-height: 1.85; max-width: 680px; }
+
+    /* SKILLS */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+    .skill-chip { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; font-size: 13.5px; color: var(--text); display: flex; align-items: center; gap: 10px; transition: border-color 0.2s; }
+    .skill-chip:hover { border-color: var(--navy); }
+    .skill-chip i { font-size: 20px; color: var(--navy); }
+
+    /* PROJECTS */
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+    .project-card { background: var(--bg); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; transition: transform 0.2s, border-color 0.2s; }
+    .project-card:hover { transform: translateY(-4px); border-color: var(--navy-light); }
+    .project-img { background: var(--navy-pale); height: 160px; display: flex; align-items: center; justify-content: center; }
+    .project-img i { font-size: 52px; color: var(--navy-light); }
+    .project-body { padding: 20px; }
+    .project-tag { display: inline-block; background: var(--navy-pale); color: var(--navy); font-size: 11px; font-weight: 600; padding: 4px 12px; border-radius: 20px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .project-title { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+    .project-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.7; margin-bottom: 14px; }
+    .tech-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .tech-badge { background: var(--bg-alt); color: var(--text-muted); font-size: 11.5px; padding: 3px 10px; border-radius: 5px; border: 1px solid var(--border); }
+    .project-link { font-size: 13px; color: var(--navy); text-decoration: none; display: inline-flex; align-items: center; gap: 5px; font-weight: 600; }
+    .project-link:hover { text-decoration: underline; }
+
+    /* CONTACT */
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+    .contact-card { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; display: flex; align-items: center; gap: 14px; text-decoration: none; color: inherit; transition: border-color 0.2s; }
+    .contact-card:hover { border-color: var(--navy); }
+    .contact-icon { width: 42px; height: 42px; background: var(--navy-pale); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .contact-icon i { font-size: 20px; color: var(--navy); }
+    .contact-label { font-size: 11px; color: var(--text-muted); margin-bottom: 2px; }
+    .contact-val { font-size: 13px; color: var(--text); font-weight: 600; word-break: break-all; }
+
+    /* FOOTER */
+    footer { background: var(--navy); padding: 28px 48px; text-align: center; }
+    footer p { color: #7aabd4; font-size: 13px; }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; flex-direction: column; gap: 12px; position: absolute; top: 54px; left: 0; right: 0; background: var(--navy); padding: 20px; }
+      .nav-links.open { display: flex; }
+      .nav-toggle { display: block; }
+      .hero { padding: 56px 20px 72px; }
+      .hero h1 { font-size: 24px; }
+      .section, .section-alt { padding: 48px 20px; }
+      footer { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">Nabila.</span>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">
+    <i class="ti ti-menu-2"></i>
+  </button>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-avatar">NN</div>
+  <!-- CARA TUKAR GAMBAR: gantikan div di atas dengan: -->
+  <!-- <img class="hero-avatar" src="photo.jpg" alt="Nurul Nabila Najla"> -->
+  <h1>Nurul Nabila Najla Roslan</h1>
+  <p class="hero-role">CS Student &nbsp;·&nbsp; Android & Web Developer &nbsp;·&nbsp; IoT Enthusiast</p>
+  <p class="hero-uni">Universiti Malaysia Terengganu &nbsp;|&nbsp; Bachelor of Computer Science (Maritime Informatics)</p>
+  <div class="btn-row">
+    <a href="#projects" class="btn-primary"><i class="ti ti-eye"></i> View Projects</a>
+    <a href="Resume_Nurul_Nabila_Najla.docx" download class="btn-outline"><i class="ti ti-download"></i> Download CV</a>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="section-inner">
+    <p class="section-label">Who I am</p>
+    <h2 class="section-title">About me</h2>
+    <p class="about-text">
+      I am a Computer Science student specialising in Maritime Informatics at Universiti Malaysia Terengganu (CGPA: 3.08). 
+      I have hands-on experience building Android and web-based applications, including an AR body measurement system for my Final Year Project. 
+      I enjoy solving real-world problems through clean, functional code and I am actively seeking an IT internship to grow my skills in a professional environment.
+    </p>
+  </div>
+</section>
+
+<section class="section-alt" id="skills">
+  <div class="section-inner">
+    <p class="section-label">What I work with</p>
+    <h2 class="section-title">Technical skills</h2>
+    <div class="skills-grid">
+      <div class="skill-chip"><i class="ti ti-brand-java"></i> Java</div>
+      <div class="skill-chip"><i class="ti ti-brand-javascript"></i> JavaScript</div>
+      <div class="skill-chip"><i class="ti ti-brand-html5"></i> HTML & CSS</div>
+      <div class="skill-chip"><i class="ti ti-database"></i> MySQL / SQL</div>
+      <div class="skill-chip"><i class="ti ti-device-mobile"></i> Android Studio</div>
+      <div class="skill-chip"><i class="ti ti-brand-vscode"></i> VS Code</div>
+      <div class="skill-chip"><i class="ti ti-network"></i> Cisco Packet Tracer</div>
+      <div class="skill-chip"><i class="ti ti-cpu"></i> IoT Integration</div>
+      <div class="skill-chip"><i class="ti ti-layout-2"></i> Responsive Design</div>
+      <div class="skill-chip"><i class="ti ti-server"></i> Database Management</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="projects">
+  <div class="section-inner">
+    <p class="section-label">What I have built</p>
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-img"><i class="ti ti-augmented-reality"></i></div>
+        <!-- TUKAR GAMBAR: gantikan div di atas dengan <img src="ar-project.png" alt="AR System" style="width:100%;height:160px;object-fit:cover;"> -->
+        <div class="project-body">
+          <span class="project-tag">Final Year Project</span>
+          <h3 class="project-title">AR Measurement System for Clothing Recommendation</h3>
+          <p class="project-desc">An AR-based Android application that measures body dimensions in real-time and recommends the most suitable clothing size automatically using MySQL integration.</p>
+          <div class="tech-row">
+            <span class="tech-badge">Java</span>
+            <span class="tech-badge">Android Studio</span>
+            <span class="tech-badge">MySQL</span>
+            <span class="tech-badge">AR Core</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-img"><i class="ti ti-building-library"></i></div>
+        <div class="project-body">
+          <span class="project-tag">Web Application</span>
+          <h3 class="project-title">Library Room Booking System</h3>
+          <p class="project-desc">A full-stack web booking system with user authentication, room scheduling, and admin management panel. Built using JSP and MySQL backend.</p>
+          <div class="tech-row">
+            <span class="tech-badge">HTML</span>
+            <span class="tech-badge">CSS</span>
+            <span class="tech-badge">JavaScript</span>
+            <span class="tech-badge">JSP</span>
+            <span class="tech-badge">MySQL</span>
+          </div>
+          <a class="project-link" href="https://github.com/Najla1007/Library_Booking_System" target="_blank">
+            <i class="ti ti-brand-github"></i> View on GitHub
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section-alt" id="contact">
+  <div class="section-inner">
+    <p class="section-label">Get in touch</p>
+    <h2 class="section-title">Contact</h2>
+    <div class="contact-grid">
+      <a class="contact-card" href="mailto:nabilanajla1007@gmail.com">
+        <div class="contact-icon"><i class="ti ti-mail"></i></div>
+        <div><div class="contact-label">Email</div><div class="contact-val">nabilanajla1007@gmail.com</div></div>
+      </a>
+      <a class="contact-card" href="https://linkedin.com/in/nabila-najla-a66a3338a" target="_blank">
+        <div class="contact-icon"><i class="ti ti-brand-linkedin"></i></div>
+        <div><div class="contact-label">LinkedIn</div><div class="contact-val">nabila-najla-a66a3338a</div></div>
+      </a>
+      <a class="contact-card" href="https://github.com/Najla1007" target="_blank">
+        <div class="contact-icon"><i class="ti ti-brand-github"></i></div>
+        <div><div class="contact-label">GitHub</div><div class="contact-val">github.com/Najla1007</div></div>
+      </a>
+      <div class="contact-card">
+        <div class="contact-icon"><i class="ti ti-map-pin"></i></div>
+        <div><div class="contact-label">Location</div><div class="contact-val">Kuala Terengganu, Malaysia</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Nurul Nabila Najla Roslan &nbsp;·&nbsp; Built with HTML, CSS & JavaScript</p>
+</footer>
+
+</body>
+</html>
